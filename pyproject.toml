@@ -1,0 +1,23 @@
+[project]
+name = "atttention-is-all-you-need"
+version = "0.1.0"
+description = "Inside the Learning Machine: an interactive PyTorch exhibit and lessons on how a GPT learns to predict words"
+readme = "README.md"
+authors = [
+    { name = "Hermann Peterscheck", email = "petershk@yahoo.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "numpy>=2.5.2",
+    "torch>=2.11.0",
+]
+
+[project.scripts]
+atttention-is-all-you-need = "atttention_is_all_you_need:main"
+
+[[tool.uv.index]]
+url = "https://download.pytorch.org/whl/cu128"
+
+[build-system]
+requires = ["uv_build>=0.12.18,<0.13.0"]
+build-backend = "uv_build"
