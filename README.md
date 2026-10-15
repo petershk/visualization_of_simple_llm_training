@@ -1,9 +1,9 @@
 # Inside the Learning Machine
 
-A hands-on, step-by-step course on how a GPT-style language model learns to predict the next word,
-built around one interactive desktop exhibit and a handful of short PyTorch scripts.
+A hands-on, step-by-step look at how a GPT-style language model learns to predict the next word,
+in one interactive desktop program.
 
-The main program, `inside_learning_machine.py`, trains a real (tiny) transformer in front of you.
+The program, `inside_learning_machine.py`, trains a real (tiny) transformer in front of you.
 You can watch every tensor change as it trains, rewind to any earlier training step, and compare what the
 model believed then with what it believes now.
 
@@ -13,12 +13,7 @@ model believed then with what it believes now.
 
 | File | What it is |
 |---|---|
-| `inside_learning_machine.py` | The interactive exhibit (Tkinter + PyTorch, single file). Start here. |
-| `lesson_01_attention.py` | Attention by hand: three tokens, fixed Q/K/V matrices, softmax weights. |
-| `lesson_02_trainable_attention.py` | The same idea with learned projections and a small vocabulary. |
-| `lesson_03_train_gpt.py` | A complete MiniGPT trained on five sentences, with next-word prediction and text generation. |
-| `lesson_06_multihead.py` | Causal multi-head attention with a verified KV cache. |
-| `mini_gpt_visualizer.py` | An earlier step-through tracer of one forward pass, with the source line for each operation highlighted. |
+| `inside_learning_machine.py` | The whole program: model, training engine and Tkinter interface in one file. |
 | `shakespeare_sonnets_154.txt` | Project Gutenberg eBook #1041, cached so the exhibit works offline. |
 | `pyproject.toml`, `uv.lock` | Dependencies (PyTorch, NumPy) pinned for `uv`. |
 
@@ -129,19 +124,15 @@ Things worth trying:
 
 ![The exhibit in Shakespeare mode](docs/screenshot_shakespeare.png)
 
-## Step 10: read the lessons
+## Step 10: read the code
 
-Each lesson is a standalone script that prints what it computes. Run them in order:
+Everything is in `inside_learning_machine.py`, top to bottom in the order you meet it:
 
-```bash
-uv run python lesson_01_attention.py
-uv run python lesson_02_trainable_attention.py
-uv run python lesson_03_train_gpt.py
-uv run python lesson_06_multihead.py
-```
-
-`lesson_03_train_gpt.py` is the same architecture the exhibit uses, without the interface, so it is the
-best place to read the code end to end.
+1. the `uv` bootstrap and the sonnet loader,
+2. the model (`Attention`, `MiniGPT`),
+3. the training `Engine`, which also keeps the checkpoints used by rewind,
+4. the tour, glossary and explanation text,
+5. the `App` class that draws the interface.
 
 ## How the model works
 
