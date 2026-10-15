@@ -46,8 +46,8 @@ The first download is large (a few gigabytes); after that everything is cached.
 ## Step 2: get the code
 
 ```bash
-git clone https://github.com/petershk/attention-is-all-you-need.git
-cd attention-is-all-you-need
+git clone https://github.com/petershk/visualization_of_simple_llm_training.git
+cd visualization_of_simple_llm_training
 ```
 
 ## Step 3: run the exhibit
